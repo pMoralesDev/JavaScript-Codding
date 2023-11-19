@@ -20,7 +20,49 @@ const generatePassword = () => {
 
     options.forEach(option => {
         if (option.checked){
-            
+            if (option.id !== "exc-fuplicate" && option.id !== "spaces"){
+                staticPassword += characters[option.id]
+            }else if(option.id === "spaces"){
+                staticPassword+= ` ${staticPassword} `
+            }else {
+                excludeDuplicate = true
+            }
         }
     })
+
+    for(let i=0; i < passLength; i++ ){
+        let randomChar = staticPassword[Math.floor(Math.random*staticPassword.length)]
+        if (excludeDuplicate){
+            !randomPassword.includes(randomChar) | randomChar == "" ? randomPassword += randomChar : i--
+        }else {
+            randomPassword += randomChar
+        }
+    }
+    passwordInput.value = randomPassword
 }
+
+const updatePassIndicator = () => {
+    passIndicator.id = lengthSlider.value <= 8 ? "weak" : lengthSlider.value <= 16 ? "mediem" : "strong"
+}
+
+const upadateSlider = () => {
+    document.querySelector(".pass-length span").innerHTML = lengthSlider.value
+    generatePassword()
+    updatePassIndicator()
+}
+
+upadateSlider()
+
+const copyPassword = () => {
+    navigator.clipboard.writeText(passwordInput.value)
+    copyIcon.innerHTML = "check"
+    copyIcon.computedStyleMap.color = "#4285e4"
+    setTimeout(() => {
+        copyIcon.innerHTML = "copy_all"
+        copyIcon.style.color = "#707070"
+    }, 1500)
+}
+
+copyIcon.addEventListener("click", copyPassword)
+lengthSlider.addEventListener(input, upadateSlider)
+generateBtn.addEventListener("click", generatePassword)
