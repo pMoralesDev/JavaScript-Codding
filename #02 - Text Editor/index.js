@@ -2,10 +2,10 @@ let optionsButtons = document.querySelectorAll(".option-button")
 let advancedOptionsButtons = document.querySelectorAll(".adv-option-button")
 let fontName = document.getElementById("fontName")
 let fontSizeRef = document.getElementById("fontSize")
-let writingArea = document.getElementById("text-Input")
+let writingArea = document.getElementById("text-input")
 let linkButton = document.getElementById("createLink")
 let alignButtons = document.querySelectorAll(".align")
-let spcingButtons = document.querySelectorAll(".spacing")
+let spacingButtons = document.querySelectorAll(".spacing")
 let formatButtons = document.querySelectorAll(".format")
 let scriptButtons = document.querySelectorAll(".script")
 
@@ -22,7 +22,7 @@ let fontList = [
 const intializer = () => {
     highLighter(alignButtons, true)
     highLighter(spacingButtons, true)
-    highLighter(formatButtons, true)
+    highLighter(formatButtons, false)
     highLighter(scriptButtons, true)
 
     fontList.map((value) => {
@@ -32,7 +32,7 @@ const intializer = () => {
         fontName.appendChild(option)
     })
 
-    for(let i = 0; i <=7; i++) {
+    for(let i = 1; i <=7; i++) {
         let option = document.createElement("option")
         option.value = i
         option.innerHTML = i
