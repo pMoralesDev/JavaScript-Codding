@@ -74,6 +74,7 @@ input[type="color"]::-moz-color.swatch{
 
 .gridRow{
     display: flex;
+    margin: auto;
 }
 
 @media only screen and (max-width: 768px) {
@@ -81,4 +82,14 @@ input[type="color"]::-moz-color.swatch{
         height: 0.8em;
         width: 0.8em;
     }
+}
+
+.container {
+    display: grid;
+    place-items: center;
+}
+
+button:hover{
+    color: #000;
+    background-color: #a0a0a0;
 }
