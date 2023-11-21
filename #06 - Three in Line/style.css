@@ -68,7 +68,7 @@ span {
     height: 75px;
     width: 125px;
     display: inline-block;
-    background-color: aliceblue;
+    background-color: #202020;
     position: relative;
     z-index: 10;
     margin-top: -50%;
@@ -94,7 +94,7 @@ button:focus {
 }
 
 .active-box {
-    background-color: silver;
+    background-color: #202020;
 }
 
 @keyframes larger {
