@@ -1,0 +1,13 @@
+body {
+    background-color: #383c41;
+    color: #1fd6ff;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 2rem;
+    text-align: center;
+    margin-top: 5vh;
+}
+
+canvas {
+    border: solid 0.2rem #1fd6ff;
+    height: 90vh;
+}
