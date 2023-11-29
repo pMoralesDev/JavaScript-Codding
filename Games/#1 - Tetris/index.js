@@ -110,7 +110,7 @@ function merge(arena, player){
     player.matrix.forEach((row,y)=>{
         row.forEach((value, x)=>{
             if(value!==0){
-                arena[y+player.pos.y][player.pos.x]=value
+                arena[y+player.pos.y][x+player.pos.x]=value
             }
         })
     })
@@ -200,7 +200,7 @@ document.addEventListener('keydown', (event) => {
     }else if(event.keyCode === 39){
         playerMove(1)
     }else if(event.keyCode === 40){
-        playerMove()
+        playerDrop()
     }else if(event.keyCode === 81){
         playerRotate(-1)
     }else if(event.keyCode === 87){
