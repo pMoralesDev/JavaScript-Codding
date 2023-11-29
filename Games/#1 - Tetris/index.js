@@ -43,47 +43,47 @@ function createMatrix(w,h){
 }
 
 function createPiece(type){
-    if (type==='I'){
+    if (type ==='I'){
         return [
-            [0,1,0,0]
-            [0,1,0,0]
-            [0,1,0,0]
-            [0,1,0,0]
+            [0,1,0,0],
+            [0,1,0,0],
+            [0,1,0,0],
+            [0,1,0,0],
         ]
     }else if (type === 'L'){
         return [
-            [0,2,0]
-            [0,2,0]
-            [0,2,2]
+            [0,2,0],
+            [0,2,0],
+            [0,2,2],
         ]
     }else if (type === 'J'){
         return [
-            [0,3,0]
-            [0,3,0]
-            [3,3,0]
+            [0,3,0],
+            [0,3,0],
+            [3,3,0],
         ]
     }else if (type === 'O'){
         return [
-            [4,4]
-            [4,4]
+            [4,4],
+            [4,4],
         ]
     }else if (type === 'Z'){
         return [
-            [5,5,0]
-            [0,5,5]
-            [0,0,0]
+            [5,5,0],
+            [0,5,5],
+            [0,0,0],
         ]
     }else if (type === 'S'){
         return [
-            [0,6,6]
-            [6,6,0]
-            [0,0,0]
+            [0,6,6],
+            [6,6,0],
+            [0,0,0],
         ]
     }else if (type === 'T'){
         return [
-            [0,7,0]
-            [7,7,7]
-            [0,0,0]
+            [0,7,0],
+            [7,7,7],
+            [0,0,0],
         ]
     }
 }
@@ -150,7 +150,7 @@ function playerMove(offset){
 
 function playerReset(){
     const pieces = 'TJLOSZI'
-    player.matrix = createPiece(pieces[(pieces.length*Math.random()) | 0])
+    player.matrix = createPiece(pieces[(pieces.length * Math.random()) | 0])
     player.pos.y = 0
     player.pos.x = ((arena[0].length /2) | 0) - ((player.matrix[0].length/2) | 0)
     if(collide(arena, player)){
@@ -221,7 +221,7 @@ const colors = [
 
 const arena = createMatrix(12, 20)
 const player = {
-    pos: {x:0, y: 0},
+    pos: {x:0, y:0},
     matrix: null,
     score: 0,
 }
