@@ -5,14 +5,14 @@ context.scale(20,20)
 
 function arenaSweep(){
     let rowCount = 1
-    outer: for(let y = arena.length-1; y>0; y--){
-        for (let x=0; x < areana[y].length;++x){
+    outer: for(let y = arena.length-1; y>0; --y){
+        for (let x=0; x < arena[y].length;++x){
             if(arena[y][x]===0){
                 continue outer
             }
         }
 
-    const row = arena.splice(y,1)[0].fill[0]
+    const row = arena.splice(y,1)[0].fill(0)
     arena.unshift(row)
     ++y
     player.score += rowCount * 10
@@ -26,7 +26,7 @@ function collide(arena, player){
     const o = player.pos
     for(let y = 0; y<m.length; ++y){
         for(let x=0; x<m[y].length;++x){
-            if(m[y][x] !== 0 && (arena[y+o.y] && arena[y+o.y][x+o.x]!==0)){
+            if(m[y][x] !== 0 && (arena[y+o.y] && arena[y+o.y][x+o.x])!==0){
                 return true
             }
         }
@@ -179,7 +179,7 @@ let dropCounter = 0
 let dropInterval = 1000
 let lastTime = 0
 
-function update(time = o){
+function update(time = 0){
     const deltaTime = time - lastTime
     dropCounter += deltaTime
     if(dropCounter>dropInterval){
@@ -202,9 +202,9 @@ document.addEventListener('keydown', (event) => {
     }else if(event.keyCode === 40){
         playerMove()
     }else if(event.keyCode === 81){
-        playerMove(-1)
+        playerRotate(-1)
     }else if(event.keyCode === 87){
-        playerMove(1)
+        playerRotate(1)
     }
 })
 
