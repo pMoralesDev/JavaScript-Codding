@@ -35,7 +35,7 @@ body {
 }
 
 .search-box input {
-    columns: #202020;
+    color: #202020;
     width: 80%;
     font-size: 24px;
     font-weight: 500;
@@ -155,7 +155,7 @@ body {
     display: none;
 }
 
-.not-found {
+.not-found p {
     color: #202020;
     font-size: 22px;
     font-weight: 500;
