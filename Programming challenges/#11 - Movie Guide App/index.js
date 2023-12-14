@@ -6,7 +6,6 @@ let result = document.getElementById("result")
 
 let getMovie = () => {
     let movieName = movieNameRef.value
-    alert(movieName)
     let url = `http://www.omdbapi.com/?t=${movieName}&apikey=${key}`
     /**
      * Si el input falla queda vacio
@@ -19,14 +18,14 @@ let getMovie = () => {
      */
     else{
         fetch(url).then((resp) => resp.json()).then((data)=>{
-            if(data.Response == "true"){
+            if(data.Response == "True"){
                 result.innerHTML = `
                     <div class="info">
                         <img src=${data.Poster} class="poster">
                         <div>
                             <h2>${data.Title}</h2>
                             <div class="rating">
-                                <img src="start-icon.svg">
+                                <img src="star-icon.svg">
                                 <h4>${data.imdbRating}</h4>
                             </div>
                             <div class="details">
