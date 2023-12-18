@@ -107,7 +107,7 @@ function updateTimer(){
  */
 const timeReduce = () => {
     time = 60
-    timer = setInterval(updateTimer(), 1000)
+    timer = setInterval(updateTimer, 1000)
 }
 
 /**
@@ -125,8 +125,8 @@ const displayResult = () => {
     if(time != 0){
         timeTaken = (60-time) / 100
     }
-    document.getElementById("speed").innerHTML = (userInput.value.length / 5 /timeTaken).toFixed(2)+"wpm"
-    document.getElementById("accuracy").innerHTML = Math.round(((userInput.value.length-mistakes)/userInput.value.length)*100) + "%"
+    document.getElementById("speed").innerText = (userInput.value.length / 5 /timeTaken).toFixed(2)+"wpm"
+    document.getElementById("accuracy").innerText = Math.round(((userInput.value.length-mistakes)/userInput.value.length)*100) + "%"
 }
 
 /**
