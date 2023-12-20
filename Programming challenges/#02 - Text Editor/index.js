@@ -65,10 +65,11 @@ const intializer = () => {
     fontSizeRef.value = 3
 }
 /**
- * @function modifyText
- * @param {*} command elemento sobre el que se aplica la funcionalidad
- * @param {*} defaultUi 
- * @param {*} value 
+ * @function modifyText emplea el método execCommand, aunque este método esta calificado como obsoleto para esta aplicación funciona bien. Se trata de la función principal que
+ * permite modificar el texto que escribe el usuario
+ * @param {*} command comando que se va a ejecutar sobre el contenido editable, los id de los elementos se corresponden con comandos
+ * @param {*} defaultUi boleano para indicar si debe de afectar a la interfaz de usuario
+ * @param {*} value valor adicional necesario para cargar el la familia de la funte, el tamaño de texto o el link a enlazar.
  */
 const modifyText = (command, defaultUi, value) => {
     document.execCommand(command, defaultUi, value)
@@ -94,6 +95,11 @@ advancedOptionsButtons.forEach((button) => {
  */
 linkButton.addEventListener("click", () => {
     let userLink = prompt("Enter a URL")
+    /**
+     * Verificamos si la información introducida por el usuario se corresponde con una url.
+     * Se utiliza una expresión regular (/http/i) para verificar si la URL ingresada por el usuario contiene "http".
+     * La "i" al final de la expresión regular indica que la búsqueda no es sensible a mayúsculas o minúsculas.
+     */
     if (/http/i.test(userLink)){
         modifyText(linkButton.id, false, userLink)
     } else {
@@ -102,9 +108,9 @@ linkButton.addEventListener("click", () => {
     }
 })
 /**
- * @function highLighter
- * @param {*} className clase sobre la que la función hará su funcionalidad
- * @param {*} needsRemoval variable booleana para decir a la función si tiene que activar o no una clase
+ * @function highLighter carga las funcionalidades de diferentes elementos con funcionalidades para modificar el texto escrito por el usuario
+ * @param {*} className clase sobre la que la aplicamos la funcionalidad
+ * @param {*} needsRemoval variable booleana para manejar si hemos de desmarcar elementos antes de resaltar uno nuevo
  */
 const highLighter = (className, needsRemoval) => {
     className.forEach((button) => {
@@ -125,7 +131,8 @@ const highLighter = (className, needsRemoval) => {
     })
 }
 /**
- * @function highLighterRemover 
+ * @function highLighterRemover se encarga de desmarcar (quitar la clase "active") todos los elementos de la clase
+ * @param {*} className clase sobre la que aplicar la funcionalidad
  */
 const highLighterRemover = (className) => {
     className.forEach((button) => {
