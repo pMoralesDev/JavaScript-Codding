@@ -93,6 +93,7 @@ body {
     cursor: pointer;
     font-size: 13px;
     padding: 7px 13px;
+    margin-left: 33px;
     border-radius: 4px;
     background: #202020;
     letter-spacing: 0.3px;
