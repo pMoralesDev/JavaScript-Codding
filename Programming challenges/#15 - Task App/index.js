@@ -30,7 +30,7 @@ function showAll (filter){
                     <div class="settings">
                         <i onclick="showMenu(this)" class="uil uil-ellipsis-h"></i>
                         <ul class="task-menu">
-                            <li onclick='edit-task(${id}, "${all.name}")'>
+                            <li onclick='editTask(${id}, "${all.name}")'>
                                 <i class = "uil uil-pen"></i>
                                 Edit
                             </li>
@@ -106,8 +106,8 @@ taskInput.addEventListener("keyup", e => {
             isEditTask=false
             all[editID].name = userTask
         }
-        taskInput=""
+        taskInput.value = ""
         localStorage.setItem("all-list", JSON.stringify(all))
-        showAll(document.querySelector("span .active".id))
+        showAll(document.querySelector("span .active").id)
     }
 })
