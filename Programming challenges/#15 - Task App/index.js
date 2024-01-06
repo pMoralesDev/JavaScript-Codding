@@ -35,7 +35,7 @@ function showAll (filter){
                                 Edit
                             </li>
                             <li onclick='deleteTask(${id}, "${filter}")'>
-                                <i class = "uil uil-Trash"></i>
+                                <i class = "uil uil-trash"></i>
                                 Delete
                             </li>
                         </ul>
@@ -48,7 +48,7 @@ function showAll (filter){
     taskBox.innerHTML = liTag || `<span>You don't have any task here</span>`
     let checkTask = taskBox.querySelectorAll(".task")
     !checkTask.length ? clearAll.classList.remove("active") : clearAll.classList.add("active")
-    taskBox.offsetHeight >= 300 ? taskBox.classList.add("overflow") : taskBox.classList.remove(overflow)
+    taskBox.offsetHeight >= 300 ? taskBox.classList.add("overflow") : taskBox.classList.remove("overflow")
 }
 showAll("all")
 function showMenu(selectedTask){
@@ -96,7 +96,6 @@ clearAll.addEventListener("click", () => {
 })
 
 taskInput.addEventListener("keyup", e => {
-    alert("entra al evento")
     let userTask = taskInput.value.trim()
     if(e.key == "Enter" && userTask) {
         if(!isEditTask){
