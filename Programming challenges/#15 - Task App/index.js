@@ -9,7 +9,7 @@ let all = JSON.parse(localStorage.getItem("all-list"))
 
 filters.forEach(btn => {
     btn.addEventListener("click", () => {
-        document.querySelector(".span.active").classList.remove("active")
+        document.querySelector("span.active").classList.remove("active")
         btn.classList.add("active")
         showAll(btn.id)
     })
@@ -18,23 +18,23 @@ filters.forEach(btn => {
 function showAll (filter){
     let liTag = ""
     if(all){
-        all.forEach((all, id) => {
-            let completed = all.status == "completed" ? "checked" : ""
-            if(filter == all.status || filter == "all"){
+        all.forEach((al, id) => {
+            let completed = al.status == "completed" ? "checked" : ""
+            if(filter == al.status || filter == "all"){
                 liTag += `
                 <li class="task">
                     <label for="${id}">
                         <input onclick="updateStatus(this)" type="checkbox" id="${id}" ${completed}>
-                        <p class="${completed}">${all.name}</p>
+                        <p class="${completed}">${al.name}</p>
                     </label>
                     <div class="settings">
                         <i onclick="showMenu(this)" class="uil uil-ellipsis-h"></i>
                         <ul class="task-menu">
-                            <li onclick='editTask(${id}, "${all.name}")'>
+                            <li onclick='editTask(${id}, "${al.name}")'>
                                 <i class = "uil uil-pen"></i>
                                 Edit
                             </li>
-                            <li onclick='deleteTask(${id}, "${all.name}")'>
+                            <li onclick='deleteTask(${id}, "${filter}")'>
                                 <i class = "uil uil-Trash"></i>
                                 Delete
                             </li>
@@ -109,6 +109,6 @@ taskInput.addEventListener("keyup", e => {
         }
         taskInput.value = ""
         localStorage.setItem("all-list", JSON.stringify(all))
-        showAll(document.querySelector("span .active").id)
+        showAll(document.querySelector("span.active").id)
     }
 })
