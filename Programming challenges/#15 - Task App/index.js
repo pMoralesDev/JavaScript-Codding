@@ -18,9 +18,9 @@ filters.forEach(btn => {
 function showAll (filter){
     let liTag = ""
     if(all){
-        all.forEach((all,id) => {
+        all.forEach((all, id) => {
             let completed = all.status == "completed" ? "checked" : ""
-            if(filter==all.status || filter == "all"){
+            if(filter == all.status || filter == "all"){
                 liTag += `
                 <li class="task">
                     <label for="${id}">
@@ -96,6 +96,7 @@ clearAll.addEventListener("click", () => {
 })
 
 taskInput.addEventListener("keyup", e => {
+    alert("entra al evento")
     let userTask = taskInput.value.trim()
     if(e.key == "Enter" && userTask) {
         if(!isEditTask){
