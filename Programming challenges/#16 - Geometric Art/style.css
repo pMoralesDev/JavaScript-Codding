@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.wrapper {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+}
+
+.container {
+    background: #202020;
+    height: calc(15vmin*5);
+    width: calc(15vmin*4);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 15px;
+    gap: 10px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(31, 214, 255, 0.4);
+}
+
+.container div {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+button {
+    width: 100%;
+    margin-top: 30px;
+    background-color: #383c41;
+    padding: 18px 0;
+    color: #fff;
+    border: 1px solid #1FD6FF;
+    cursor: pointer;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 3.5vmin;
+    border-radius: 10px;
+}
+
+.square-circle-1 {
+    clip-path: circle(100% at 0 0);
+}
+.square-circle-2 {
+    clip-path: circle(100% at 100% 0);
+}
+.square-circle-3 {
+    clip-path: circle(100% at 100% 100%);
+}
+.square-circle-4 {
+    clip-path: circle(100% at 0 100%);
+}
+
+.triangle-1 {
+    clip-path: polygon(0 0, 0 100%, 100% 0);
+}
+.triangle-2 {
+    clip-path: polygon(0 0, 100% 0, 100% 100%);
+}
+.triangle-3 {
+    clip-path: polygon(0 100%, 100% 0, 100% 100%);
+}
+.triangle-4 {
+    clip-path: polygon(0 0, 0 100%, 100% 100%);
+}
+
+.circle {
+    border-radius: 50%;
+}
