@@ -12,13 +12,13 @@ const shapes = [
 ]
 
 const colors = ["#1345fc","#ab4325","#987da1","#453e5c"]
-const boxes = document.querySelectorAll(".cotainer div")
+const boxes = document.querySelectorAll(".container div")
 
 let generatePatern = () => {
     boxes.forEach((box) => {
-        box.name = ""
-        let i = Math.floor(Math.random*shapes.length)
-        let j = Math.floor(Math.random*colors.length)
+        box.setAttribute('class','')
+        let i = Math.floor(Math.random()*shapes.length)
+        let j = Math.floor(Math.random()*colors.length)
         box.classList.add(shapes[i])
         box.style.backgroundColor = colors[j]
     })
