@@ -1,7 +1,7 @@
 const playBoard = document.querySelector(".play-board")
 const scoreElement = document.querySelector(".score")
 const highScoreElement = document.querySelector(".high-score")
-const controls = document.querySelectorAll(".control i")
+const controls = document.querySelectorAll(".controls i")
 
 let gameOver = false
 let foodX, foodY
@@ -15,7 +15,7 @@ let score = 0
  * Creamos una variable para almacenar la puntuación más alta
  */
 let highScore = localStorage.getItem("high-score") || 0
-highScoreElement.innerHTML = `High Score: ${highScore}`
+highScoreElement.innerText = `High Score: ${highScore}`
 
 /**
  * Creamos una función para que aparezca comida de forma aleatoria
@@ -64,12 +64,12 @@ const initGame = () => {
      */
     if( snakeX === foodX && snakeY === foodY) {
         upadateFoodPosition()
-        snakeBody.push([foodX, foodY])
+        snakeBody.push([foodY, foodX])
         score++
         highScore = score >= highScore ? score : highScore
         localStorage.setItem('high-score', highScore)
-        scoreElement.innerHTML = `Score: ${score}`
-        highScoreElement.innerHTML = `High Score: ${highScore}`
+        scoreElement.innerText = `Score: ${score}`
+        highScoreElement.innerText = `High Score: ${highScore}`
     }
     /**
      * Actualizamos la serpiente
