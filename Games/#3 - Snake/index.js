@@ -20,7 +20,7 @@ highScoreElement.innerText = `High Score: ${highScore}`
 /**
  * Creamos una función para que aparezca comida de forma aleatoria
  */
-function updateFoodPosition() {
+const updateFoodPosition = () => {
     foodX = Math.floor(Math.random() * 30) + 1
     foodY = Math.floor(Math.random() * 30) + 1
 }
@@ -32,16 +32,16 @@ const handleGameOver = () => {
 }
 
 const changeDirection = e => {
-    if(e.key === "Arrow-up" && velocityY != 1){
+    if(e.key === "ArrowUp" && velocityY != 1){
         velocityX = 0
         velocityY = -1
-    } else if ( e.key === "Arrow-down" && velocityY != -1){
+    } else if ( e.key === "ArrowDown" && velocityY != -1){
         velocityX = 0
         velocityY = 1
-    } else if ( e.key === "Arrow-left" && velocityX != 1){
+    } else if ( e.key === "ArrowLeft" && velocityX != 1){
         velocityX = -1
         velocityY = 0
-    } else if ( e.key === "Arrow-right" && velocityX != -1){
+    } else if ( e.key === "ArrowRight" && velocityX != -1){
         velocityX = 1
         velocityY = 0
     }
@@ -58,7 +58,7 @@ const initGame = () => {
     if(gameOver) {
         return handleGameOver()
     }
-    let html = `<div class='food' style='grid-area:${foodY}/${foodX}></div>'`
+    let html = `<div class="food" style="grid-area:${foodY}/${foodX}"></div>`
     /**
      * Cuando la serpiente come comida
      */
@@ -93,7 +93,7 @@ const initGame = () => {
      * 
      */
     for(let i = 0; i<snakeBody.length; i++){
-        html+= `<div class='head' style='grid-area:${snakeBody[i][1]}/${snakeBody[i][0]}'></div>`
+        html+= `<div class="head" style="grid-area:${snakeBody[i][1]}/${snakeBody[i][0]}"></div>`
         /**
          * Comprobamos que la serpiente no ha chocado con ella misma
          */
@@ -105,5 +105,5 @@ const initGame = () => {
 }
 
 updateFoodPosition()
-setIntervalID = setInterval(initGame,100)
+setIntervalID = setInterval(initGame, 100)
 document.addEventListener('keyup', changeDirection)
