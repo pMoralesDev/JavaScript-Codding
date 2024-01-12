@@ -20,9 +20,9 @@ highScoreElement.innerText = `High Score: ${highScore}`
 /**
  * Creamos una función para que aparezca comida de forma aleatoria
  */
-const upadateFoodPosition = () => {
-    foodX = Math.floor(Math.random()*30)+1
-    foodY = Math.floor(Math.random()*30)+1
+function updateFoodPosition() {
+    foodX = Math.floor(Math.random() * 30) + 1
+    foodY = Math.floor(Math.random() * 30) + 1
 }
 
 const handleGameOver = () => {
@@ -58,12 +58,12 @@ const initGame = () => {
     if(gameOver) {
         return handleGameOver()
     }
-    let html = `<div class='food' style='grid-area:${foodY}/${foodX}'`
+    let html = `<div class='food' style='grid-area:${foodY}/${foodX}></div>'`
     /**
      * Cuando la serpiente come comida
      */
     if( snakeX === foodX && snakeY === foodY) {
-        upadateFoodPosition()
+        updateFoodPosition()
         snakeBody.push([foodY, foodX])
         score++
         highScore = score >= highScore ? score : highScore
@@ -104,6 +104,6 @@ const initGame = () => {
     playBoard.innerHTML = html
 }
 
-upadateFoodPosition()
+updateFoodPosition()
 setIntervalID = setInterval(initGame,100)
 document.addEventListener('keyup', changeDirection)
