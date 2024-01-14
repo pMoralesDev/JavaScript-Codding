@@ -1,0 +1,179 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #383c41;
+}
+
+.wrapper {
+    width: 90%;
+    font-size: 16px;
+    max-width: 43.76m;
+    margin: 1em auto;
+}
+
+.container {
+    width: 100%;
+}
+
+.sub-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3em;
+}
+
+.sub-container p {
+    color: #fff;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+}
+
+.flex-space {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.wrapper h3 {
+    color: #fff;
+    font-weight: 500;
+}
+
+.container input {
+    display: block;
+    width: 100%;
+    padding: 0.6em 0.3em;
+    border: 1px solid #1FD6FF;
+    border-radius: 5px;
+    color: #fff;
+    outline: none;
+    font-weight: 400;
+    margin-bottom: 1.6em;
+    color: #202020;
+}
+
+.container input:focus {
+    border-color: #1F16FF;
+}
+
+.total-amount-container .user-amount-container {
+    background-color: #fff;
+    padding: 1.25em 0.9em;
+    border-radius: 0.3em;
+    box-shadow: 0 0.6em 1.2em rgba(31, 214, 255, 0.4);
+}
+
+#total-amount::placeholder #product-title::placeholder .user-amount::placeholder {
+    color: #383c41;
+}
+
+.output-container {
+    background-color: #1FD6FF;
+    color: #383c41;
+    border-radius: 0.3em;
+    box-shadow: 0 0.6em 1.2em rgba(28, 0, 0, 0.07);
+    margin: 2em 0;
+    padding: 1.2em;
+}
+
+.output-container p {
+    font-weight: 500;
+    margin-bottom: 0.6em;
+}
+
+.output-container span {
+    display: block;
+    text-align: center;
+    font-weight: 400;
+    color: #202020;
+}
+
+.submit {
+    font-size: 1em; 
+    background-color: #1FD6FF;
+    border: none;
+    outline: none;
+    color: #fff;
+    padding: 0.6em 1.2em;
+    border-radius: 0.3em;
+    cursor: pointer;
+}
+
+.list {
+    background-color: #fff;
+    padding: 1.8em 1.2em;
+    box-shadow: 0 0.6em 1.2em rgba(28, 0, 0, 0.07);
+    border-radius: 0.6em;
+}
+
+.sublist-content {
+    width: 100%;
+    border-left: 0.3em solid #1F16FF;
+    margin-bottom: 0.6em;
+    padding: 0.5em 1em;
+    display: grid;
+    grid-template-columns: 3fr 2fr 1fr 1fr;
+}
+
+.product {
+    font-weight: 500;
+    color: #383c41;
+}
+
+.amount {
+    color: #383c41;
+    margin-left: 20%;
+}
+
+.icons-container {
+    width: 5em;
+    margin: 1.2em;
+    align-items: center;
+}
+
+.product-title {
+    margin-bottom: 1em;
+}
+
+.hide {
+    display: none;
+}
+
+.error {
+    color: #ff475a;
+}
+
+.edit {
+    margin-left: auto;
+}
+
+.edit, .delete {
+    background: transparent;
+    cursor: pointer;
+    margin-right: 1.5em;
+    border: none;
+    color: #1F16FF;
+}
+
+@media screen and (max-width: 600px) {
+
+    .wrapper {
+        font-size: 14px;
+    }
+
+    .sub-container {
+        grid-template-columns: 1fr;
+        gap: 1em;
+    }
+    
+}
