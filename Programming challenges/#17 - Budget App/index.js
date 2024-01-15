@@ -33,8 +33,8 @@ totalAmountButton.addEventListener('click', () => {
  */
 const disableButtons = (bool) => {
     let editButtons = document.getElementsByClassName("edit")
-    Array.from(editButtons).forEach(element => {
-        element.disable = bool
+    Array.from(editButtons).forEach((element) => {
+        element.disabled = bool
     })
 }
 /**
@@ -94,6 +94,7 @@ checkAmountButton.addEventListener('click', () => {
     let expenditure  = parseInt(userAmount.value)
     let sum = parseInt(expenditureValue.innerText) + expenditure
     expenditureValue.innerText = sum
+    const totalBalance = tempAmount - sum;
     balanceValue.innerText = totalBalance
     listCreator(productTitle.value, userAmount.value)
     productTitle.value=""
