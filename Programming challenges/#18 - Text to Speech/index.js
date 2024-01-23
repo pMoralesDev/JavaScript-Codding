@@ -9,7 +9,7 @@ languages()
 
 function languages(){
     for(let language of synth.getVoices()){
-        let selected = language.name === 'Google US English' ? 'selected' : ""
+        let selected = language.name === 'Google ES Spanish' ? 'selected' : ""
         let option = `<option value="${language.name}" ${selected}>${language.name} (${language.lang})</option>`
         languageList.insertAdjacentHTML("beforeend", option)
     }
