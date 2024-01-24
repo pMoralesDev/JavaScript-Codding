@@ -3,7 +3,7 @@ const dark = document.querySelector(".dark")
 const ligth = document.querySelector(".light")
 const qrContainer = document.querySelector("#qr-code")
 const qrText = document.querySelector(".qr-text")
-const shareBtn = document.querySelector(".share")
+const shareBtn = document.querySelector(".share-btn")
 const sizes = document.querySelector(".sizes")
 
 dark.addEventListener("input", handleDarkColor)
@@ -23,7 +23,7 @@ function handleDarkColor(e){
     generateQRCode()
 }
 
-function handlLigthColor(e){
+function handleLightColor(e){
     colorLight = e.target.value
     generateQRCode()
 }
@@ -53,7 +53,7 @@ async function handleShare() {
     setTimeout(async() => {
         try {
             const base64url = await resolveDataURL()
-            const bob = await (await fetch(base64url)).blob()
+            const blob = await (await fetch(base64url)).blob()
             const file = new File ([blob], "QRCode.png",{
                 type: blob.type,
             })
@@ -62,7 +62,7 @@ async function handleShare() {
                 title:text
             })
         } catch (e) {
-            alert("your browser does not support sharing")
+            alert("Your browser does not support sharing")
         }
     },100)
 }
