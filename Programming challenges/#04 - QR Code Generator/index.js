@@ -1,19 +1,19 @@
 const download = document.querySelector(".download")
 const dark = document.querySelector(".dark")
-const ligth = document.querySelector(".ligth")
+const ligth = document.querySelector(".light")
 const qrContainer = document.querySelector("#qr-code")
 const qrText = document.querySelector(".qr-text")
 const shareBtn = document.querySelector(".share")
 const sizes = document.querySelector(".sizes")
 
-dark.addEventListener("imput", handleDarkColor)
-ligth.addEventListener("imput", handleLigthColor)
-qrText.addEventListener("imput", handleQRText)
-sizes.addEventListener("imput", handleSize)
-shareBtn.addEventListener("imput", handleShare)
+dark.addEventListener("input", handleDarkColor)
+ligth.addEventListener("input", handleLightColor)
+qrText.addEventListener("input", handleQRText)
+sizes.addEventListener("change", handleSize)
+shareBtn.addEventListener("click", handleShare)
 
 const defaultUrl = "https://github.com/pMoralesDev"
-let colorLigth = "#fff",
+let colorLight = "#fff",
     colorDark = "#000",
     text = defaultUrl,
     size = 300
@@ -24,7 +24,7 @@ function handleDarkColor(e){
 }
 
 function handlLigthColor(e){
-    colorLigth = e.target.value
+    colorLight = e.target.value
     generateQRCode()
 }
 
@@ -43,7 +43,7 @@ async function generateQRCode() {
         text,
         height: size,
         width: size,
-        colorLigth,
+        colorLight,
         colorDark,
     })
     download.href = await resolveDataURL()
