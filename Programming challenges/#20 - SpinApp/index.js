@@ -23,7 +23,7 @@ const rotationValues = [
 /**
  * @param data Tamaño de las porciones dentro de la ruleta 
  */
-const data = [16.6,16.6,16.6,16.6,16.6,16.6]
+const data = [16,16,16,16,16,16]
 
 /**
  * @param pieColors Color de fondo de las porciones 
@@ -80,7 +80,7 @@ let myChart = new Chart (wheel, {
 const showValue = (angleValue) => {
     for (let i of rotationValues){
         if(angleValue >= i.minDegree && angleValue <= i.maxDegree){
-            finalValue.innerHTML = `<p>Value: ${i.value}`
+            finalValue.innerHTML = `<p>Value: ${i.value}</p>`
             spinBtn.disabled = false
             break
         }
@@ -93,7 +93,7 @@ const showValue = (angleValue) => {
 let spinCount = 0
 
 /**Establecemos 200 rotaciones para la animación y en la última cojemos el resultado */
-let resultValue = 101
+let resultValue = 201
 
 /**
  * Agregamos la funcionalidad al botón para inicia con la funcionalidad de la aplicación 
@@ -104,21 +104,21 @@ spinBtn.addEventListener('click', () => {
     /**
      * @param randomDegree Generamos un angulo aleatorio para poder asignar, de este modo, un resulado numérico aleatorio 
      */
-    let randomDegree = Math.floor(Math.random()*356)
+    let randomDegree = Math.floor(Math.random()*360)
     /**Establecemos un intervalo dentro del cual la ruleta gira */
     let rotationInterval = window.setInterval(() => {
         myChart.options.rotation = myChart.options.rotation + resultValue
         myChart.update()
         /**Dado que superar 360 es más de una vuelta, en este caso lo reiniciamos a 0 */
         if(myChart.options.rotation >=360){
-            count+=1
+            spinCount+=1
             resultValue-=5
             myChart.options.rotation = 0
-        } else if (count > 15 && myChart.options.rotate == randomDegree) {
+        } else if (spinCount > 15 && myChart.options.rotation == randomDegree) {
             showValue(randomDegree)
             clearInterval(rotationInterval)
             count = 0
-            resultValue = 101
+            resultValue = 201
         }
-    }, 5)
+    }, 10)
 })
