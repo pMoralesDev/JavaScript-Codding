@@ -92,7 +92,9 @@ const showValue = (angleValue) => {
  */
 let spinCount = 0
 
-/**Establecemos 200 rotaciones para la animación y en la última cojemos el resultado */
+/**
+ * @param resultValue número de rotaciones para la animación
+ */
 let resultValue = 201
 
 /**
@@ -114,6 +116,7 @@ spinBtn.addEventListener('click', () => {
             spinCount+=1
             resultValue-=5
             myChart.options.rotation = 0
+        /**Establecemos una condición de fin del giro, terminamos con el setInterval(), mostramos el resutlado e incicializamos valores */
         } else if (spinCount > 15 && myChart.options.rotation == randomDegree) {
             showValue(randomDegree)
             clearInterval(rotationInterval)
