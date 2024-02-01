@@ -38,7 +38,7 @@ function startNewGame(){
      */
     inputs.innerHTML=''
     for(let i=0; i<word.length; i++){
-        let input = document.createElement('input')
+        const input = document.createElement('input')
         input.type = 'text'
         input.disabled = 'true'
         inputs.appendChild(input)
@@ -52,10 +52,12 @@ function handleInput(e){
      * Ignoramos los input introducidos que no son letras y aquellas letras que ya se han introducido
      */
     const key = e.target.value.toLowerCase()
-    if(key.match(/^[a-z]+$/i) && !incorrectLeters.includes(`&{key}`) && !correctLetters.includes(`{key}`)) {
+    if(key.match(/^[a-z]+$/i) && !incorrectLeters.includes(`${key}`) && !correctLetters.includes(`${key}`)) {
         if(word.includes(key)){
             for (let i=0; i<word.length; i++){
-                inputs.querySelectorAll("input")[i].value += key
+                if(word[i]===key){
+                    inputs.querySelectorAll("input")[i].value += key
+                }   
             }
         }
         correctLetters += key
@@ -80,7 +82,7 @@ function handleInput(e){
             /**
              * Rellenamos los huecos vacios con las letras correctas
              */
-            let input = document.createElement('input')[i].value = word[i]
+            inputs.querySelectorAll('input')[i].value = word[i]
         }
     }
     /**
