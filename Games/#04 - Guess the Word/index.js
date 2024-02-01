@@ -15,7 +15,7 @@ let word, incorrectLeters = [], correctLetters =[], maxGuesses
  * @function startNewGame iniciamos las funcionalidadesd el juego
  */
 function startNewGame(){
-    alert('New Game is going to star!!<br>Are you ready to guees the word?')
+    alert(`New Game is going to star!! Are you ready to guees the word?`)
     /**
      * Ocultamos el elemento pista
      */
@@ -26,7 +26,7 @@ function startNewGame(){
      * Asignamos un número de intentos en función del tamaño de la palabra
      */
     const randomWord = wordList[Math.floor(Math.random()*wordList.length)]
-    word = randomWord
+    word = randomWord.word
     maxGuesses = word.length >= 5 ? 8 : 6
     incorrectLeters = []
     correctLetters = []
@@ -72,10 +72,10 @@ function handleInput(e){
      */
     guessLeft.innerText = maxGuesses
     if(correctLetters.length === word.length){
-        alert(`Congrats! You've guessed the word ${word.toUpperCase}`)
+        alert(`Congrats! You've guessed the word ${word.toUpperCase()}`)
         startNewGame()
     } else if (maxGuesses < 1) {
-        alert(`Game Over! You haven't guessed the word, it's ${word.toUpperCase}`)
+        alert(`Game Over! You haven't guessed the word, it's ${word.toUpperCase()}`)
         for (let i=0; i<word.length; i++){
             /**
              * Rellenamos los huecos vacios con las letras correctas
@@ -99,3 +99,10 @@ function showHintElement(){
 /**
  * Cargamos las funcionalidades en los botones correspondientes
  */
+resetBtn.addEventListener('click', startNewGame)
+hintBtn.addEventListener('click', showHintElement)
+typeInput.addEventListener('input', handleInput)
+inputs.addEventListener('click', () => typeInput.focus())
+document.addEventListener('keydown', () => typeInput.focus())
+
+startNewGame()
