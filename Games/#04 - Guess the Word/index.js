@@ -53,21 +53,22 @@ function handleInput(e){
      */
     const key = e.target.value.toLowerCase()
     if(key.match(/^[a-z]+$/i) && !incorrectLeters.includes(`${key}`) && !correctLetters.includes(`${key}`)) {
+        /**Comprobamos si la letra está incluida en la palabra */
         if(word.includes(key)){
             for (let i=0; i<word.length; i++){
                 if(word[i]===key){
                     inputs.querySelectorAll("input")[i].value += key
                 }   
             }
+            correctLetters += key
+        } else {
+            /**
+             * En caso de que no se haya acertado, actualizamos los errores
+             */
+            maxGuesses--
+            incorrectLeters.push(`${key}`)
+            mistakes.innerText = incorrectLeters
         }
-        correctLetters += key
-    } else {
-        /**
-         * En caso de que no se haya acertado, actualizamos los errores
-         */
-        maxGuesses--
-        incorrectLeters.push(`${key}`)
-        mistakes.innerText = incorrectLeters
     }
     /**
      * Actualizamos los intentos para adivinar y comprobamos las condiciones de victoria y derrota
@@ -75,7 +76,6 @@ function handleInput(e){
     guessLeft.innerText = maxGuesses
     if(correctLetters.length === word.length){
         alert(`Congrats! You've guessed the word ${word.toUpperCase()}`)
-        startNewGame()
     } else if (maxGuesses < 1) {
         alert(`Game Over! You haven't guessed the word, it's ${word.toUpperCase()}`)
         for (let i=0; i<word.length; i++){
@@ -106,5 +106,3 @@ hintBtn.addEventListener('click', showHintElement)
 typeInput.addEventListener('input', handleInput)
 inputs.addEventListener('click', () => typeInput.focus())
 document.addEventListener('keydown', () => typeInput.focus())
-
-startNewGame()
