@@ -51,7 +51,7 @@ const showPath = async (colors) => {
     for(let color of colors){
         const currentColor = document.querySelector(`.${color}`)
         await delay(500)
-        currentColor.style.backgroundColor = colorObj[color].new
+        currentColor.style.backgroundColor = colorObj[color].focus
         await delay(600)
         currentColor.style.backgroundColor = colorObj[color].current
         await delay(600)
@@ -62,11 +62,13 @@ const showPath = async (colors) => {
  * 
  */
 const endGame = () => {
-    resultEl.innerText = `<span> Your score: ${score}</span>`
+    resultEl.innerText = `Your score: ${score}`
     resultEl.classList.remove('hide')
     wrapperEl.classList.add('hide')
     startBtn.innerText = 'Play again'
     startBtn.classList.remove('hide')
+    containerEl.classList.remove('hide')
+
 }
 /**
  * 
@@ -90,7 +92,7 @@ const handleColorClick = async (e) => {
         return false
     }
     if (e.target.classList.contains(randomColors[clickCount])){
-        e.target.style.backgroundColor = colorObj[randomColors[clickCount]].new
+        e.target.style.backgroundColor = colorObj[randomColors[clickCount]].focus
         await delay(600)
         e.target.style.backgroundColor = colorObj[randomColors[clickCount]].current
         clickCount++
@@ -105,5 +107,5 @@ const handleColorClick = async (e) => {
 
 startBtn.addEventListener('click', resetGame)
 colorParts.forEach((color) => {
-    color.addEventListener('click', handleColorClick())
+    color.addEventListener('click', handleColorClick)
 })
