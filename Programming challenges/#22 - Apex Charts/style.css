@@ -59,7 +59,7 @@ body {
     transform-origin: center;
     opacity: 0.8;
     scale: 0;
-    animation: pulse 3s center;
+    animation: pulse 3s linear infinite;
 }
 
 @keyframes pulse {
@@ -71,4 +71,44 @@ body {
         scale: 3;
         opacity: 0;
     }
+}
+
+.card .chart-area {
+    position: relative;
+}
+
+.card .chart-area .grid {
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80%;
+    background-image: repeating-linear-gradient(to right, transparent 0% 3%, #eee 3% 3.5%, transparent 3% 18.65%);
+}
+
+.card .chart-area .grid::after {
+    content: "";
+    position: inherit;
+    z-index: 1;
+    bottom: 0;
+    width: inherit;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(29, 29, 29, 1), rgba(29, 29, 29, 0.8), rgba(29, 29, 29, 1));
+}
+
+body .apexcharts-tooltip.apexcharts-theme-ligth{
+    color: #f9f9f9;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    box-shadow: none;
+    padding: 4px 1px 0;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    border: 0;
+}
+
+.apexcharts-tooltip-title, .apexcharts-xaxistooltip-bottom.apexcharts-theme-light {
+    display: none;
 }
