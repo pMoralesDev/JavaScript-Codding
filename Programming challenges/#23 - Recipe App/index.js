@@ -1,7 +1,7 @@
 const resultContainer = document.getElementById('result'),
 searchBtn = document.getElementById('search-button'),
 searchInput = document.getElementById('search-input'),
-searchContainer = document.querySelector('search-box')
+searchContainer = document.querySelector('.search-box')
 
 /**API */
 const apiUrl = "https://www.themealdb.com/api/json/v1/1/search.php?s=";
@@ -20,7 +20,7 @@ function searchMeal(){
                 resultContainer.innerHTML = "<h3>Your meal hasn't found, Please try with other meal</h3>"
                 return
             }
-            const ingredients = getingredientes(meal)
+            const ingredients = getIngredients(meal)
             /**Generamos un HTML para mostrar los datos de los ingredientes */
             const recipeHTML = `
                 <div class="details">
@@ -32,7 +32,7 @@ function searchMeal(){
                     <h3>Ingredientes</h3>
                     <ul>${ingredients}</ul>
                 </div>
-                <div id"recipe">
+                <div id="recipe">
                     <button id="hide-recipe">X</button>
                     <pre id="instructions">${meal.strInstructions}</pre>
                 </div>
