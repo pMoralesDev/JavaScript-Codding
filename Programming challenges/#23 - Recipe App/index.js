@@ -47,12 +47,36 @@ function searchMeal(){
             searchContainer.style.opacity = '0'
             searchContainer.style.display = 'none'
 
-            .catch(() => {
-                searchContainer.style.opacity = '1' 
-            })
-        })
-        
+    }).catch(() => {
+        searchContainer.style.opacity = '1' 
+        searchContainer.style.display = 'grid'
+        resultContainer.innerHTML = '<h3>Error fetching data!</h3>'
+    })
+}
+
+function getIngredients(meal){
+    let ingredientsHTML = ""
+    for (let i=1; i <= 20; i++){
+        const ingredient = meal[`strIngredient${i}`]
+        if(ingredient){
+            const measure = meal [`strMeasure${i}`]
+            ingredientsHTML += `<li>${measure} ${ingredient}</li>`
+        }else{
+            break
+        }
     }
+    return ingredientsHTML
+}
+
+function hideRecipe() {
+    const recipe = document.getElementById('recipe')
+    recipe.style.display='none'
+}
+
+function showRecipe(){
+    const recipe = document.getElementById('recipe')
+    recipe.style.display='block'
+}
 
 searchBtn.addEventListener('click', searchMeal)
 searchInput.addEventListener('keydown', function(e){
