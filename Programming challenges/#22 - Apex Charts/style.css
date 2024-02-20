@@ -84,7 +84,7 @@ body {
     left: 0;
     width: 100%;
     height: 80%;
-    background-image: repeating-linear-gradient(to right, transparent 0% 3%, #eee 3% 3.5%, transparent 3% 18.65%);
+    background-image: repeating-linear-gradient(to right, transparent 0% 3%, #eee 3% 3.5%, transparent 3% 17.8%);
 }
 
 .card .chart-area .grid::after {
