@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
+
+:root{
+    --background-dark: #202020;
+    --background-semidark: #383c41;
+    --backgorund-semilight: #c2c2c2;
+    --backgorund-light: #fff;
+    --logo--color: #1FD6FF;
+    --logo--color2: #1F16FF;
+}
+
+body {
+    background-color: var(--background-dark);
+    color: var(--backgorund-semilight);
+    font-family: 'Ubuntu', sans-serif;
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+h1 {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+#grid {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#grid tr td {
+    border: 1px solid var(--logo--color);
+    background-color: var(--backgorund-semilight);
+    width: 20px;
+    height: 20px;
+    text-align: center;
+}
+
+#grid tr td.active {
+    background-color: var(--background-semidark);
+}
+
+#grid tr td.mine {
+    background-color: #d94523;
+}
+
+button {
+    margin: 12px 0;
+    padding: 10px 2px;
+    border: 1px solid var(--logo--color);
+    background-color: var(--logo--color2);
+    outline: none;
+    cursor: pointer;
+    color: var(--backgorund-semilight);
+    font-size: 20px;
+    border-radius: 8px;
+}
+
+button:hover {
+    background-color: var(--logo--color);
+    border: solid 1px var(--logo--color2);
+    color: var(--background-semidark);
+}
