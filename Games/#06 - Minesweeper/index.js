@@ -4,7 +4,7 @@
  * @param lockGame 
  */
 const grid = document.getElementById('grid')
-testMode = false
+testMode = true
 let lockGame = false
 generateGrid()
 /**
@@ -28,7 +28,10 @@ function generateGrid() {
     }
     generateMines()
 }
-
+/**
+ * @function generateMines función para generar minas de manera aleatoria
+ * No esta optimizada repite numeros en la aletaoriedad, lo que hace que no genere siemrpe 20 minas
+ */
 function generateMines() {
     for(var i = 0; i < 20; i++) {
         var row = Math.floor(Math.random()*10)
@@ -52,7 +55,7 @@ function revealMines() {
     }
 }
 
-function chaeckGameCompleted() {
+function checkGameCompleted() {
     var gameCompleted = true
     for (var i = 0; i < 10; i++ ){
         for(var j; j < 10; j++){
@@ -79,8 +82,8 @@ function init(cell){
             var mineCount = 0
             var cellRow = cell.parentNode.rowIndex
             var cellCol = cell.cellIndex
-            for (var i = Math.max(celRow-1, 0); i <= Math.min(cellRow +1, 9); i++ ){
-                for (var j = Math.max(celCol-1, 0); j <= Math.min(cellCol +1, 9); j++ ){
+            for (var i = Math.max(cellRow-1, 0); i <= Math.min(cellRow +1, 9); i++ ){
+                for (var j = Math.max(cellCol-1, 0); j <= Math.min(cellCol +1, 9); j++ ){
                     if(grid.rows[i].cells[j].getAttribute('mine') == 'true'){
                         mineCount++
                     }
@@ -88,15 +91,15 @@ function init(cell){
             }
             cell.innerHTML = mineCount
             if(mineCount == 0){
-                for (var i = Math.max(celRow-1, 0); i <= Math.min(cellRow +1, 9); i++ ){
-                    for (var j = Math.max(celCol-1, 0); j <= Math.min(cellCol +1, 9); j++ ){
+                for (var i = Math.max(cellRow-1, 0); i <= Math.min(cellRow +1, 9); i++ ){
+                    for (var j = Math.max(cellCol-1, 0); j <= Math.min(cellCol +1, 9); j++ ){
                         if(grid.rows[i].cells[j].innerHTML = ""){
                             init(grid.rows[i].cells[j])
                         }
                     }
                 }
             }
-            chaeckGameCompleted()
+            checkGameCompleted()
         }
     }
 }

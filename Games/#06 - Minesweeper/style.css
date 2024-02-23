@@ -36,10 +36,12 @@ h1 {
     width: 20px;
     height: 20px;
     text-align: center;
+    color: var(--background-semidark);
 }
 
 #grid tr td.active {
     background-color: var(--background-semidark);
+    color: var(--backgorund-semilight);
 }
 
 #grid tr td.mine {
