@@ -1,9 +1,22 @@
+/**
+ * @function searchGithub cogiendo la información aportada por el usuario hace una petición a la API de GitHub. 
+ * En función de la respuesta a la petición, muestra una información y otra al usuario
+ */
 const searchGithub = async () => {
+    /**
+     * @var username convierte el valor introducido por el usuario en un dato para la función
+     * @var response almacena la petición que hacemos a la API
+     * @var detailContainer toma el valor del contenedor html en el que se mostrará la información
+     * @var data almacena los datos facilitados por la API
+     */
     const username = document.getElementById('searchInput').value
     response = await fetch(`https://api.github.com/users/${username}`)
     detailContainer = document.querySelector('.details')
     data = await response.json()
-
+    /**
+     * Si la API da una respuesta afirmativa muestra los datos en el contenedor, configurados en formato HTML
+     * Si la API responde negativamente muestra el mensaje de error predeterminado
+     */
     if(response.ok){
         detailContainer.style.display='flex'
         document.getElementById('result').innerHTML = `
