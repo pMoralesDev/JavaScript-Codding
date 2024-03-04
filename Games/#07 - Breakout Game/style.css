@@ -1,0 +1,22 @@
+:root{
+    --background-dark: #202020;
+    --background-semidark: #383c41;
+    --backgorund-semilight: #c2c2c2;
+    --backgorund-light: #fff;
+    --logo--color: #1FD6FF;
+    --logo--color2: #1F16FF;
+}
+
+body {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--background-dark);
+}
+
+#game {
+    background-color: var(--backgorund-semilight);
+    margin-top: 10rem;
+    border: 1px solid var(--logo--color);
+}
