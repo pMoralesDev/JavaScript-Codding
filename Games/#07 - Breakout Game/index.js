@@ -1,3 +1,8 @@
+/**
+ * @var canvas elemto html donde vamos a pintar el juego
+ * @var ctx contexto que vamos a aplicar a nuestro canvas, en este caso 2 dimesiones
+ * @var ballRadius 
+ */
 let canvas = document.getElementById("game"),
 ctx = canvas.getContext('2d'),
 ballRadius = 9,
@@ -53,9 +58,9 @@ function drawBall() {
 function drawBricks() {
     for ( let i = 0; i < columnCount; i++){
         for (let j = 0; j < rowCount; j++ ){
-            if(bricks[c][j].status === 1) {
-                let brickX = (c * (brickWidth + brickPadding)) + leftOffset
-                let brickY = (c * (brickHeight + brickPadding)) + topOffset
+            if(bricks[i][j].status === 1) {
+                let brickX = (i * (brickWidth + brickPadding)) + leftOffset
+                let brickY = (i * (brickHeight + brickPadding)) + topOffset
                 bricks[i][j].x = brickX
                 bricks[i][j].y = brickY
                 ctx.beginPath()
@@ -109,8 +114,8 @@ function init() {
     if(y + dy < ballRadius){
         dy = -dy
     } else if (y + dy > canvas.height - ballRadius) {
-        if (x > paddleWidth && x < paddleX + paddleWidth){
-            dt = -dy
+        if (x > paddleX && x < paddleX + paddleWidth){
+            dy = -dy
         } else {
             alert('Game Over!')
             document.location.reload()
@@ -122,7 +127,7 @@ function init() {
     }
 
     x += dx
-    y +=dy
+    y += dy
 
 }
 
