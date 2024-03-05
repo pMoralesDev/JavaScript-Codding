@@ -14,7 +14,7 @@ paddleHeight = 12,
 paddleWidth = 72,
 paddleX = (canvas.width - paddleWidth) / 2,
 rowCount = 5,
-columnCount = 5,
+columnCount = 9,
 brickWidth = 54,
 brickHeight = 18,
 brickPadding = 12,
@@ -24,7 +24,7 @@ score = 0,
 bricks = []
 
 for ( let i = 0; i < columnCount ; i++){
-    bricks[0] = []
+    bricks[i] = []
     for ( let j = 0; j < rowCount; j++){
         bricks[i][j] = {x:0, y:0, status:1}
     }
@@ -60,7 +60,7 @@ function drawBricks() {
         for (let j = 0; j < rowCount; j++ ){
             if(bricks[i][j].status === 1) {
                 let brickX = (i * (brickWidth + brickPadding)) + leftOffset
-                let brickY = (i * (brickHeight + brickPadding)) + topOffset
+                let brickY = (j * (brickHeight + brickPadding)) + topOffset
                 bricks[i][j].x = brickX
                 bricks[i][j].y = brickY
                 ctx.beginPath()
