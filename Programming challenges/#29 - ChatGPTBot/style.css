@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+:root{
+    --background-dark: #202020;
+    --background-semidark: #383c41;
+    --backgorund-semilight: #c2c2c2;
+    --backgorund-light: #fff;
+    --logo--color: #1FD6FF;
+    --logo--color2: #1F16FF;
+}
+
+*{
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-dark);
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--backgorund-light);
+    border-bottom: 1px solid var(--logo--color);
+    height: 50px;
+}
+
+.header h3 {
+    font-size: 17px;
+    font-weight: 500;
+}
+
+.container {
+    width: 85%;
+    max-width: 1000px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0 auto;
+}
+
+.info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 20;
+}
+
+.info a{
+    color: var(--backgorund-semilight);
+    text-decoration: none;
+    font-size: 25px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.info a:hover {
+    color: var(--logo--color);
+}
+
+.input-container {
+    background-color: var(--background-semidark);
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid var(--logo--color);
+    position: sticky;
+    bottom: 0;
+}
+
+#user-input {
+    background-color: var(--background-semidark);
+    color: var(--backgorund-light);
+    border: none;
+    outline: none;
+    padding: 8px;
+    flex: 9;
+    font-size: 14px;
+    font-weight: 400;
+    border-radius: 6px;
+}
+
+#user-input::placeholder {
+    color: var(--backgorund-semilight);
+    font-weight: 400;
+}
+
+#send-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--logo--color);
+    color: var(--backgorund-light);
+    cursor: pointer;
+    margin-left: 15px;
+    transition: all 0.3s ease;
+}
+
+#send-button:hover {
+    background-color: var(--logo--color2);
+}
