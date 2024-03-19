@@ -12,7 +12,7 @@ userInput.addEventListener('keydown', (event) => {
 })
 
 function sendMessage() {
-    const message = userinput.value.trim()
+    const message = userInput.value.trim()
     if(message === ''){
         return
     }else if (message === 'developer'){
@@ -31,7 +31,7 @@ function sendMessage() {
         method: 'POST',
         headers: {
             'content-type': 'application/json',
-            'X-RapidAPI-Key': 'Your own key',
+            'X-RapidAPI-Key': 'Your API Key' ,
             'X-RapidAPI-Host': 'chatgpt-api8.p.rapidapi.com'
         },
         body: `{"messages":[{"role":"user","content":"${message}"}]}`
@@ -68,7 +68,12 @@ function appendMessage(sender, message) {
         icon.classList.add('fa-regular', 'fa-user')
         iconElement.setAttribute('id', 'user-icon')
     } else {
-        icon.classList.add('fa-regular', 'fa-user')
-        iconElement.setAttribute('id', 'user-icon')
+        icon.classList.add('fa-solid', 'fa-robot')
+        iconElement.setAttribute('id', 'bot-icon')
     }
+    iconElement.appendChild(icon)
+    chatElement.appendChild(iconElement)
+    chatElement.appendChild(messageElement)
+    chatLog.appendChild(chatElement)
+    chatLog.scrollTo = chatLog.scrollHeight
 }
