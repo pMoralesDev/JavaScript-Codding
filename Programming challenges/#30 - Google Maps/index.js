@@ -18,7 +18,7 @@ function initialize() {
         title: 'Casa de Campo, Madrid, Spain'
     })
 
-    market.addListener('click', function () {
+    marker.addListener('click', function () {
         infoWindow.setContent(marker.title)
         infoWindow.open(map, marker)
     })
