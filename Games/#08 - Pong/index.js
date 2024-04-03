@@ -127,7 +127,7 @@ function update(){
     if(ball.x - ball.radius < 0){
         com.score++
         resetBall()
-    } else if (ball.x + ball.radius > 0){
+    } else if (ball.x + ball.radius > canvas.width){
         user.score++
         resetBall()
     }
@@ -135,7 +135,7 @@ function update(){
     ball.x += ball.velocityX
     ball.y += ball.velocityY
 
-    com.y += (ball.y - (com.y + com.height/2)) * 2
+    com.y += (ball.y - (com.y + com.height/2)) * 0.1
 
     if (ball.y - ball.radius < 0 || ball.y + ball.radius > canvas.height){
         ball.velocityY = -ball.velocityY
@@ -143,8 +143,8 @@ function update(){
 
     let player = ball.x + ball.radius < canvas.width/2 ? user : com
     if (collision(ball, player)){
-        const collisionPoint = ball.y - (player.y + player.height/2)
-        colisionAngle = (Math.PI/4) * (collisionPoint / (player.height/2))
+        const collisionPoint = ball.y - (player.y + player.height/2),
+        colisionAngle = (Math.PI/4) * (collisionPoint / (player.height/2)),
         direction = ball.x + ball.radius  < canvas.width/2 ? 1 : -1
         ball.velocityX = direction * ball.speed * Math.cos(colisionAngle)
         ball.velocityY = ball.speed * Math.sin(colisionAngle)
