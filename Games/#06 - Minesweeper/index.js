@@ -4,7 +4,7 @@
  * @var lockGame se activa para parar la funcionalidad hasta que reinicia el juego entre partida y partida
  */
 const grid = document.getElementById('grid')
-testMode = true
+testMode = false
 let lockGame = false
 generateGrid()
 /**

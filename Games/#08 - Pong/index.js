@@ -1,5 +1,5 @@
-const canvas = document.getElementById('game'),
-context = canvas.getContext('2d')
+const canvas = document.getElementById('game')
+const context = canvas.getContext('2d')
 canvas.width = window.innerWidth
 canvas.height = window.innerHeight
 const paddleWidth = 18,
@@ -10,7 +10,9 @@ intitialBallSpeed = 8,
 maxBallSpeed = 45,
 netWidth = 5,
 netColor = 'WHITE'
-
+/**
+ * @function drawNet se encarga de dibujar la linea divisoria entre los campos del jugador y la computadora
+ */
 function drawNet() {
     for(let i=0; i<=canvas.width; i+=15){
         drawRect(canvas.width/2 - netWidth/2, i, netWidth, 10, netColor)
