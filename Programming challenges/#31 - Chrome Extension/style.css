@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root{
+    --background-dark: #202020;
+    --background-semidark: #383c41;
+    --backgorund-semilight: #c2c2c2;
+    --backgorund-light: #fff;
+    --logo--color: #1FD6FF;
+    --logo--color2: #1F16FF;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.container {
+    background-color: var(--background-dark);
+    width: 375px;
+}
+
+.container :where(.picker, header, .all-colors){
+    display: flex;
+    align-items: center;
+    border-radius: 0 0 35px 35px;
+}
+
+.container .picker {
+    padding: 35px 0;
+    background-color: var(--backgorund-semilight);
+    justify-content: center;
+    border: 1px solid var(--logo--color);
+}
+
+.picker #picker-btn {
+    margin-right: 10px;
+}
+
+.picker #picker-btn, .picker #export-btn {
+    border: 1px solid var(--logo--color2);
+    outline: none;
+    color: var(--logo--color);
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 7px 14px;
+    background-color: var(--background-semidark);
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.picker #picker-btn:hover, .picker #export-btn:hover {
+    background-color: var(--background-dark);
+}
+
+.colors-list {
+    margin: 10px 15px;
+}
+
+.colors-list header {
+    justify-content: space-between;
+}
+
+header .title {
+    font-size: 1rem;
+    color: var(--backgorund-semilight);
+} 
+
+header #clear-btn {
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: var(--backgorund-semilight);
+}
+
+header #clear-btn:hover {
+    color: var(--logo--color);
+}
+
+.colors-list .all-colors{
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 10px 0 0;
+}
+
