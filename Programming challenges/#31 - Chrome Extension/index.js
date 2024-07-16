@@ -72,5 +72,31 @@ const createColorPopup = () => {
 }
 
 const showColors = () => {
-    
+    colorList.innerHTML = pickedColors.map((color) => 
+        `
+            <li class='color'>
+                <span class='rect' style='background: ${color}: border: 1px solid 
+                ${color === '#ffffff' ? '#ccc' : color}'></span>
+                <span class='value hex' data-color='${color}'>${color}</span>
+            </li>
+        `
+    ).join('')
+
+    const colorElemnts = document.querySelectorAll('.color')
+    colorElemnts.forEach((li) => {
+        const colorHex = li.querySelector('.value.hex')
+        colorHex.addEventListener('click', (e) => {
+            const color = e.currentTarget.dataset.color
+            if(currentPopup){
+                document.body.removeChild(currentPopup)
+            }
+            const popup = createColorPopup(color)
+            document.body.appendChild(popup)
+            currentPopup = popup
+        })
+    })
+
+    const pickedColorsContainer = document.querySelector('colors-list')
+    pickedColorsContainer.classList.toggle('hide', pickedColors.length === 0)
 }
+
