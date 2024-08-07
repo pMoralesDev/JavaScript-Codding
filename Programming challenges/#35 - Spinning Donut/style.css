@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
+
+:root{
+    --background-dark: #202020;
+    --background-semidark: #383c41;
+    --backgorund-semilight: #c2c2c2;
+    --backgorund-light: #fff;
+    --logo--color: #1FD6FF;
+    --logo--color2: #1F16FF;
+}
+
+body{
+    background-color: #383c41;
+    color: #fff;
+    height: 100vh;
+    overflow: hidden;
+}
+
+pre{
+    font-family: monospace;
+    font-size: 10px;
+}
+
+.donut-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
