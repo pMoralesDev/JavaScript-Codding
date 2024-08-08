@@ -22,7 +22,7 @@
             cB = Math.cos(B),
             sB = Math.sin(B)
 
-        for ( let i = 0; i < width+heigth; i++){
+        for ( let i = 0; i < width*heigth; i++){
             b[k] = k % width == width -1 ? '/n' : ''
             z[k] = 0
         }
@@ -36,10 +36,10 @@
                 let cp = Math.cos(j)
                 let h = ct + 2
                 let D = 1 / (sp * h * sA + st * cA + 5)
-                let t = sp * h * cA - st - sA
+                let t = sp * h * cA - st * sA
 
                 let x = Math.floor(width / 2 + (width / 4) * D * (cp *h * cB -t * sB))
-                let y = Math.floor(heigth / 2 + (width / 4) * D * (cp * h * cB + t * sB))
+                let y = Math.floor(heigth / 2 + (heigth / 4) * D * (cp * h * sB + t * cB))
 
                 let o = x + width * y
                 let N = Math.floor(8 * ((st * sA - sp * ct * cA) * cB - sp * ct * sA - st * cA - cp * ct *sB))
@@ -50,5 +50,20 @@
                 }
             }
         }
+        preTag.innerHTML = b.join('')
     }
-})
+
+    function startASCIIAnimation() {
+        window.asciiIntervalId = setInterval(renderASCIIFrame, 50)
+    }
+
+    renderASCIIFrame()
+
+    if(document.all) {
+        window.ContentVisibilityAutoStateChangeEvent('onload', startASCIIAnimation)
+    } else {
+        window.addEventListener('load', startASCIIAnimation, false)
+    }
+
+    window.addEventListener('resize', renderASCIIFrame)
+})()
