@@ -1,0 +1,48 @@
+:root{
+    --background-dark: #202020;
+    --background-semidark: #383c41;
+    --backgorund-semilight: #c2c2c2;
+    --backgorund-light: #fff;
+    --logo--color: #1FD6FF;
+    --logo--color2: #1F16FF;
+}
+
+.container {
+    width: 600px;
+    height: 450px;
+    background-color: var(--background-semidark);
+    border-radius: 15px;
+    margin: auto;
+    margin-top: 10%;
+    display: grid;
+    align-items: center;
+}
+
+.input-timer {
+    color: aliceblue;
+    margin: auto;
+    font-size: 52px;
+}
+
+.buttons {
+    display: flex;
+    align-items: center;
+    margin: auto;
+}
+
+.buttons > button {
+    border-radius: 8px;
+    padding: 5px 10px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #c2c2c2;
+}
+
+.start {
+    background-color: #1ab91a;
+    margin-right: 15px;
+}
+
+.finish {
+    background-color: #d41c1c;
+}
