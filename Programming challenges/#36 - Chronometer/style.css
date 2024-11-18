@@ -18,6 +18,11 @@
     align-items: center;
 }
 
+.timer {
+    display: flex;
+    margin-top: 10%;
+}
+
 .input-timer {
     color: aliceblue;
     margin: auto;
