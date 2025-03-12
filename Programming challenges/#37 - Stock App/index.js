@@ -3,7 +3,7 @@ const stockList = document.querySelector('#stock-list')
 
 // Fecth to api and display de top 10
 function fecthTopStocks(){
-    fetch('https://www.alphavantage.co/query?function=SECTOR&apikey=PPGAIPOEDBPR3Y5P').then(response => response.json()).then(data => {
+    fetch('https://www.alphavantage.co/query?function=SECTOR&apikey=My_KEY').then(response => response.json()).then(data => {
         const stocks = data['Rank A: Real-Time Performance']
         let html = ''
         // Generate html for each stock
