@@ -1,6 +1,7 @@
 const chronometer = document.getElementsByClassName("input-timer")[0];
 const startButton = document.querySelector(".start");
 const finishButton = document.querySelector(".finish");
+const resetButton = document.querySelector(".restart");
 
 const { timer, Subject } = rxjs;
 const { takeUntil } = rxjs.operators;
@@ -30,5 +31,12 @@ function stopChronometer() {
   stopChronometer$.next();
 }
 
+function resetChronometer() {
+  stopChronometer$.next();
+  secondsElapsed = 0;
+  chronometer.innerText = formatTime(secondsElapsed);
+}
+
 startButton.addEventListener("click", startChronometer);
 finishButton.addEventListener("click", stopChronometer);
+resetButton.addEventListener("click", resetChronometer);

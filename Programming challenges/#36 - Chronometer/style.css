@@ -7,10 +7,18 @@
     --logo--color2: #1F16FF;
 }
 
+body {
+    background-color: var(--background-dark);
+    color: var(--backgorund-light);
+    font-family: 'Roboto', sans-serif;
+}
+
 .container {
     width: 600px;
     height: 450px;
     background-color: var(--background-semidark);
+    border: 2px solid var(--logo--color);
+    box-shadow: 0 0 10px var(--logo--color);
     border-radius: 15px;
     margin: auto;
     margin-top: 10%;
@@ -37,10 +45,20 @@
 
 .buttons > button {
     border-radius: 8px;
-    padding: 5px 10px;
+    padding: 1rem;
     font-size: 15px;
+    border: 1px solid var(--logo--color2);
+    box-shadow: 0 0 10px var(--logo--color2);
     font-weight: 600;
-    color: #c2c2c2;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.buttons > button i {
+    margin-right: 5px;
+    font-size: 2rem;
 }
 
 .start {
@@ -50,4 +68,9 @@
 
 .finish {
     background-color: #d41c1c;
+}
+
+.restart {
+    background-color: #d4b21b;
+    margin-left: 15px;
 }
