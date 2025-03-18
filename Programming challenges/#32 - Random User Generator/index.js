@@ -1,4 +1,5 @@
 document.getElementById('downloadBtn').addEventListener('click', fetchAndDownloadUsers);
+let cuantity = document.getElementById('cuantity').value;
 
 /**
  * @function generateRandomPassword
@@ -6,7 +7,7 @@ document.getElementById('downloadBtn').addEventListener('click', fetchAndDownloa
  * @returns 
  */
 function generateRandomPassword(length) {
-    const charset = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    const charset = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-=!@#$%^&*()_+[]{}|;:,.<>?';
     let password = '';
     for (let i = 0; i < length; i++) {
         const randomIndex = Math.floor(Math.random() * charset.length);
@@ -17,10 +18,11 @@ function generateRandomPassword(length) {
 
 async function fetchAndDownloadUsers() {
     try {
-    const response = await fetch('https://randomuser.me/api/?results=100&inc=name,email,dob,phone&noinfo&nat=es');
+    const response = await fetch(`https://randomuser.me/api/?results=${cuantity}&inc=name,email,dob,phone&noinfo&nat=es`);
     if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
+        throw new Error(`HTTP error! status: ${response.status} - ${response.statusText}`);
     }
+
     const data = await response.json();
 
     // Filtrar nombres que no sean en árabe
@@ -34,7 +36,7 @@ async function fetchAndDownloadUsers() {
         role: role,
         name: `${user.name.first} ${user.name.last}`,
         email: user.email,
-        password: generateRandomPassword(8),
+        password: generateRandomPassword(14),
         age: user.dob.age,
         phone: user.phone,
     };
