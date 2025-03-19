@@ -2,6 +2,8 @@ document.getElementById('downloadBtn').addEventListener('click', fetchAndDownloa
 let cuantity = document.getElementById('cuantity').value;
 
 /**
+ * Genera una contraseña aleatoria de la longitud especificada.
+ * 
  * @function generateRandomPassword
  * @param {number} length  numero de caracteres que quieres tenga la password
  * @returns 
@@ -15,7 +17,14 @@ function generateRandomPassword(length) {
     }
     return password;
 }
-
+/**
+ * Realiza una solicitud HTTP para obtener datos de usuarios aleatorios y los descarga en un archivo JSON.
+ * 
+ * @async
+ * @function fetchAndDownloadUsers
+ * @returns {Promise<void>} 
+ * @throws {Error} 
+ */
 async function fetchAndDownloadUsers() {
     try {
     const response = await fetch(`https://randomuser.me/api/?results=${cuantity}&inc=name,email,dob,phone&noinfo&nat=es`);

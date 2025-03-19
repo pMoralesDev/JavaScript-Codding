@@ -59,3 +59,30 @@ form button {
 form button:hover {
     background-color: #0800F9;
 }
+
+#stock-list {
+    list-style: none;
+    margin-top: 0.5rem;
+}
+
+#stock-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px;
+    background-color: #fff;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+}
+
+#stock-list li span {
+    font-weight: 600;
+    border-bottom: none;
+}
+
+li.error {
+    background-color: #ffcccc;
+    color: #ff0000;
+    border: 1px solid #ff0000;
+}
